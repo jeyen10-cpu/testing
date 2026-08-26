@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>10 Days in Japan: A Planning Guide from Malaysia</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;600;700&family=Noto+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#FFFFFF;
+    --tint:#F1F7EC;
+    --tint-2:#E8F1E0;
+    --ink:#28271F;
+    --ink-soft:#5B584C;
+    --green:#71A24C;
+    --green-dark:#4C7331;
+    --green-deep:#3A5827;
+    --line: rgba(40,39,31,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Noto Sans', sans-serif;
+    font-size:17px;
+    line-height:1.7;
+  }
+  .mono{font-family:'Space Mono', monospace;}
+  h1,h2,h3,h4{
+    font-family:'Shippori Mincho', serif;
+    color:var(--green-deep);
+    line-height:1.25;
+    margin:0 0 .5em 0;
+    font-weight:600;
+  }
+  a{color:var(--green-dark);}
+  img{max-width:100%;display:block;}
+  article{max-width:720px;margin:0 auto;padding:0 24px 80px;}
+
+  /* ---------- MASTHEAD ---------- */
+  .masthead{max-width:720px;margin:0 auto;padding:64px 24px 28px;}
+  .kicker{
+    font-family:'Space Mono', monospace;
+    font-size:.78rem;
+    letter-spacing:.06em;
+    color:var(--green-dark);
+    text-transform:uppercase;
+    margin-bottom:14px;
+    display:block;
+  }
+  .masthead h1{font-size:clamp(1.9rem,4vw,2.5rem); max-width:640px;}
+  .masthead .dek{font-size:1.1rem;color:var(--ink-soft);max-width:600px;margin-top:8px;}
+  .byline{margin-top:22px;font-size:.88rem;color:var(--ink-soft);display:flex;gap:14px;align-items:center;}
+  .byline .avatar{width:34px;height:34px;border-radius:50%;background:var(--green);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Shippori Mincho';font-size:.95rem;flex-shrink:0;}
+
+  /* ---------- HERO PHOTO ---------- */
+  .hero-photo{width:100%;max-height:460px;object-fit:cover;border-bottom:1px solid var(--line);}
+  .hero-photo-wrap{margin-bottom:8px;}
+  .credit{font-size:.74rem;color:var(--ink-soft);text-align:right;max-width:720px;margin:6px auto 0;padding:0 24px;}
+  .credit a{color:var(--ink-soft);}
+
+  hr.rule{border:none;border-top:1px solid var(--line);margin:2.6em 0;max-width:720px;margin-left:auto;margin-right:auto;}
+
+  /* ---------- ARTICLE PROSE ---------- */
+  article p{margin:0 0 1.15em 0;}
+  article h2{font-size:1.5rem;margin-top:2.6em;}
+  article h3{font-size:1.15rem;color:var(--ink); font-family:'Noto Sans'; font-weight:700; margin-top:1.6em;}
+  article ul, article ol{margin:0 0 1.2em 0;padding-left:1.3em;}
+  article li{margin-bottom:.45em;}
+  .drop{
+    float:left;font-family:'Shippori Mincho';font-size:3.6rem;line-height:.8;
+    padding:.08em .08em 0 0;color:var(--green-dark);font-weight:700;
+  }
+  .aside{
+    background:var(--tint);
+    border-left:3px solid var(--green);
+    padding:16px 20px;
+    border-radius:4px;
+    font-size:.95rem;
+    color:var(--ink-soft);
+    margin:1.6em 0;
+  }
+  figure{margin:1.6em 0;}
+  figure img{border-radius:8px;}
+  figcaption{font-size:.8rem;color:var(--ink-soft);margin-top:8px;font-style:italic;}
+
+  /* ---------- SEASON CHART ---------- */
+  .season-chart{display:flex;flex-direction:column;gap:14px;margin:1.6em 0 1em;}
+  .season-row{display:grid;grid-template-columns:110px 1fr 100px;align-items:center;gap:14px;}
+  .season-name{font-family:'Space Mono';font-weight:700;font-size:.82rem;}
+  .season-name small{font-weight:400;color:var(--ink-soft);}
+  .season-bar-track{background:var(--tint-2);border-radius:6px;height:13px;overflow:hidden;}
+  .season-bar{height:100%;border-radius:6px;}
+  .season-val{font-family:'Space Mono';font-size:.76rem;text-align:right;color:var(--ink-soft);}
+  .season-legend{display:flex;gap:20px;margin-top:10px;flex-wrap:wrap;font-size:.78rem;color:var(--ink-soft);}
+  .season-legend span{display:flex;align-items:center;gap:6px;}
+  .dot{width:9px;height:9px;border-radius:50%;display:inline-block;}
+
+  /* ---------- ROUTE TIMELINE w/ photos ---------- */
+  .rail{position:relative;margin:1.8em 0 1em;}
+  .rail-line{position:absolute;left:19px;top:6px;bottom:6px;width:3px;background:repeating-linear-gradient(180deg, var(--green) 0 8px, transparent 8px 14px);}
+  .stop{position:relative;display:grid;grid-template-columns:40px 1fr;gap:16px;margin-bottom:34px;}
+  .stop-node{display:flex;justify-content:center;padding-top:2px;}
+  .marker{
+    width:40px;height:40px;border-radius:50%;
+    background:var(--green);color:#fff;
+    font-family:'Space Mono';font-weight:700;font-size:.85rem;
+    display:flex;align-items:center;justify-content:center;
+    border:3px solid #fff;box-shadow:0 0 0 2px var(--green);
+  }
+  .stop-photo{width:100%;height:200px;object-fit:cover;border-radius:8px;margin-bottom:12px;}
+  .stop-city{font-family:'Space Mono';font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--green-dark);margin-bottom:3px;}
+  .stop h3{margin:0 0 6px 0;font-size:1.08rem;}
+  .stop p{margin:0 0 6px 0;color:var(--ink-soft);font-size:.95rem;}
+  .stop .stop-credit{font-size:.7rem;color:#9a9686;font-style:italic;margin-bottom:10px;}
+
+  /* ---------- TABLES ---------- */
+  table.cmp{
+    width:100%;border-collapse:collapse;margin:1.4em 0;font-size:.92rem;
+  }
+  table.cmp th, table.cmp td{
+    padding:12px 14px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top;
+  }
+  table.cmp th{
+    background:var(--green-dark);color:#fff;
+    font-family:'Space Mono';font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;font-weight:700;
+  }
+  table.cmp th:first-child{border-top-left-radius:6px;}
+  table.cmp th:last-child{border-top-right-radius:6px;}
+  table.cmp td:first-child{font-weight:700;color:var(--green-deep);}
+  table.cmp tr:nth-child(even) td{background:var(--tint);}
+  .note{font-size:.85rem;color:var(--ink-soft);margin-top:-.6em;}
+
+  /* ---------- PHOTO STRIP (city compare) ---------- */
+  .photo-strip{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:1.4em 0;}
+  .photo-strip figure{margin:0;}
+  .photo-strip img{width:100%;height:150px;object-fit:cover;border-radius:8px;}
+  .photo-strip figcaption{text-align:center;margin-top:6px;font-style:normal;font-family:'Space Mono';font-size:.72rem;color:var(--green-dark);}
+
+  /* ---------- BUDGET DONUT ---------- */
+  .budget-wrap{display:flex;gap:36px;align-items:center;flex-wrap:wrap;margin:1.4em 0;}
+  .donut-legend{display:flex;flex-direction:column;gap:9px;font-size:.9rem;flex:1;min-width:220px;}
+  .donut-legend div{display:flex;justify-content:space-between;gap:10px;}
+  .donut-legend .k{display:flex;align-items:center;gap:8px;}
+  .donut-legend .v{font-family:'Space Mono';font-weight:700;color:var(--green-deep);}
+
+  footer{max-width:720px;margin:0 auto;padding:40px 24px 60px;border-top:1px solid var(--line);}
+  footer p{color:var(--ink-soft);font-size:.92rem;}
+
+  @media (max-width:600px){
+    .season-row{grid-template-columns:90px 1fr 80px;}
+    .photo-strip{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="masthead">
+  <span class="kicker">Trip Planning · Japan from Malaysia</span>
+  <h1>Ten Days in Japan: How I'd Plan It From Kuala Lumpur</h1>
+  <p class="dek">A route through Tokyo, Hakone, Kyoto, Nara and Osaka, with the visa rules, train math, and budget numbers worked out so you don't have to start from a blank page.</p>
+  <div class="byline">
+    <div class="avatar">旅</div>
+    <div>A practical itinerary guide · roughly 12 min read</div>
+  </div>
+</div>
+
+<div class="hero-photo-wrap">
+  <img class="hero-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Shinjuku_skyline,_Tokyo_-_Sony_A7R_(11831328835).jpg" alt="Shinjuku skyline at dusk, Tokyo">
+</div>
+<p class="credit">Shinjuku, Tokyo — photo by Guilhem Vellut, Wikimedia Commons (CC BY 2.0)</p>
+
+<article>
+
+<p><span class="drop">S</span>omewhere around the third time a friend asked me to "just send the itinerary," I realised it was easier to write the whole thing down properly. Japan is one of the more forgiving countries to plan for — the trains run on time, the signage is bilingual, and Malaysians don't even need a visa — but a good first trip still comes down to sequencing: which city first, how many nights each, and where the money actually goes. This is the version I'd hand to someone flying out of KLIA for the first time, built around ten days and four cities.</p>
+
+<h2>Before you book anything</h2>
+
+<p>The paperwork side of this trip is refreshingly light. Malaysian passport holders have been able to enter Japan visa-free for tourism since 2013, and the current allowance is up to 90 days — more than enough for a ten-day trip, with no application, no fee, and no advance registration required. You'll just need a passport valid for at least six months beyond your stay, and it helps to have your first night's accommodation and a return ticket ready to show at immigration, since those are the two things officers sometimes ask about.</p>
+
+<p>A few other things are worth sorting before you leave Malaysia rather than after you land:</p>
+
+<ul>
+  <li><strong>Connectivity</strong> — an eSIM bought in advance (Klook or Airalo both work fine) or a pocket WiFi counter at the arrival airport will get you online the moment you land. Don't wait to sort this out at the hotel.</li>
+  <li><strong>Cash</strong> — Japan has become more card-friendly in recent years, but plenty of shrines, small ramen counters, and rural vending machines still expect yen. A 7-Eleven ATM is the easiest way to withdraw once you're there.</li>
+  <li><strong>Shinkansen seats</strong> — if you're travelling in cherry blossom season (March–April) or autumn foliage season (October–November), reserve your bullet train seats a few days ahead. Unreserved cars on the Tokyo–Kyoto line do fill up.</li>
+</ul>
+
+<h2>Picking your dates</h2>
+
+<p>Spring and autumn get all the postcards for a reason, but they also carry the highest flight and hotel prices, and the biggest crowds at anywhere photogenic. Summer is hot and humid in a way that will feel familiar coming from Malaysia, which oddly makes it one of the more comfortable seasons for a tropical traveller, even if it's not the prettiest. Winter is the quiet, cheap option, cold but rarely miserable in Tokyo, Kyoto, or Osaka. Here's roughly how the four seasons compare on cost and crowding:</p>
+
+<div class="season-chart">
+  <div class="season-row">
+    <span class="season-name">Spring<br><small>Mar – May</small></span>
+    <div class="season-bar-track"><div class="season-bar" style="width:95%;background:var(--green-deep);"></div></div>
+    <span class="season-val">Peak, sakura</span>
+  </div>
+  <div class="season-row">
+    <span class="season-name">Summer<br><small>Jun – Aug</small></span>
+    <div class="season-bar-track"><div class="season-bar" style="width:55%;background:var(--green);"></div></div>
+    <span class="season-val">Hot, humid</span>
+  </div>
+  <div class="season-row">
+    <span class="season-name">Autumn<br><small>Sep – Nov</small></span>
+    <div class="season-bar-track"><div class="season-bar" style="width:92%;background:var(--green-deep);"></div></div>
+    <span class="season-val">Peak, foliage</span>
+  </div>
+  <div class="season-row">
+    <span class="season-name">Winter<br><small>Dec – Feb</small></span>
+    <div class="season-bar-track"><div class="season-bar" style="width:38%;background:#A8C793;"></div></div>
+    <span class="season-val">Cheapest</span>
+  </div>
+</div>
+<div class="season-legend">
+  <span><span class="dot" style="background:var(--green-deep);"></span> highest cost &amp; crowd level</span>
+  <span><span class="dot" style="background:var(--green);"></span> moderate, tropical-friendly heat</span>
+  <span><span class="dot" style="background:#A8C793;"></span> lowest flight &amp; hotel prices</span>
+</div>
+
+<p>If I had to pick one window for a first trip, I'd lean early December or late January: proper Japan, without the queueing.</p>
+
+<hr class="rule">
+
+<h2>The route: ten days, four cities</h2>
+
+<p>The shape of this trip is the classic "Golden Route," and it's classic for a reason — it links three very different cities with a train ride short enough that you never lose a full day to transit. Direct flights from KLIA to Tokyo (Narita or Haneda) run around seven hours, which is long enough to actually sleep, and Japan sits only one hour ahead of Malaysia, so jet lag isn't really a factor. Here's how I'd lay the ten days out, one stop per day:</p>
+
+<div class="rail">
+  <div class="rail-line"></div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">1</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Sensoji_Temple_(Asakusa,_Tokyo,_Japan)_2023-07-02.jpg" alt="Senso-ji Temple in Asakusa, Tokyo">
+      <div class="stop-city">Tokyo</div>
+      <h3>Arrival, and an easy first evening in Asakusa</h3>
+      <p>Land, ride the airport express into the city, and check in. Rather than cramming in sights on zero sleep, I'd just walk to Senso-ji Temple and Nakamise shopping street at dusk — enough to feel like you've arrived without needing much energy for it.</p>
+      <div class="stop-credit">Senso-ji Temple, Asakusa — Wikimedia Commons (CC BY-SA 4.0)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">2</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/2018_Shibuya_Crossing.jpg" alt="Shibuya Crossing, Tokyo">
+      <div class="stop-city">Tokyo</div>
+      <h3>Akihabara by day, Shibuya and Shinjuku by night</h3>
+      <p>Electronics and anime shops in Akihabara in the morning, then across town for the Shibuya Crossing scramble, the Hachiko statue, and Shinjuku's back-alley izakaya streets once the neon comes on.</p>
+      <div class="stop-credit">Shibuya Crossing — Wikimedia Commons (CC BY-SA 4.0)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">3</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Torii_of_Meiji_Shrine.jpg" alt="Torii gate at Meiji Shrine, Tokyo">
+      <div class="stop-city">Tokyo</div>
+      <h3>Harajuku, Meiji Shrine, and a change of pace</h3>
+      <p>A quiet forest walk into Meiji Jingu, then straight into the noise and colour of Takeshita Street. In the afternoon, teamLab Planets or Odaiba make a good contrast — Tokyo's traditional and futuristic sides in the same day.</p>
+      <div class="stop-credit">Meiji Shrine torii — Wikimedia Commons (CC BY-SA 4.0)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">4</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Lake_Ashi_%26_Mt_Fuji_%26_Hakone_Shrine.jpg" alt="Mt Fuji seen from Lake Ashi, Hakone">
+      <div class="stop-city">Hakone</div>
+      <h3>A day away from the city, chasing a view of Fuji</h3>
+      <p>The Hakone Ropeway, a cruise on Lake Ashi, and — if the weather cooperates — a proper view of Mt Fuji. It's also the natural place to book an onsen soak before heading back toward Tokyo.</p>
+      <div class="stop-credit">Mt Fuji from Lake Ashi, Hakone — Wikimedia Commons (CC BY-SA 4.0)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">5</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/FushimiInariTorii.jpg" alt="Torii gates at Fushimi Inari Shrine, Kyoto">
+      <div class="stop-city">Kyoto</div>
+      <h3>Shinkansen to Kyoto, then straight to Fushimi Inari</h3>
+      <p>About two and a half hours by bullet train from Tokyo. Drop your bags and head to Fushimi Inari before the light goes — the thousands of vermillion torii gates thin out noticeably by early evening.</p>
+      <div class="stop-credit">Fushimi Inari torii path — Wikimedia Commons (public domain)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">6</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Bamboo_grove_in_Arashiyama.jpg" alt="Arashiyama Bamboo Grove, Kyoto">
+      <div class="stop-city">Kyoto</div>
+      <h3>Arashiyama's bamboo grove, then Kinkaku-ji</h3>
+      <p>Go to Arashiyama early — this is the one place in the itinerary where arriving before 8am genuinely changes the experience. Kinkaku-ji's golden pavilion by midday, then Nishiki Market for a grazing dinner.</p>
+      <div class="stop-credit">Arashiyama Bamboo Grove — Wikimedia Commons (CC BY-SA 4.0)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">7</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Nara_park_deer.jpg" alt="Deer roaming in Nara Park">
+      <div class="stop-city">Nara</div>
+      <h3>A day trip to the bowing deer and the great Buddha</h3>
+      <p>Forty-five minutes from Kyoto by local train. Nara Park's free-roaming deer are the main event, but Todai-ji's wooden hall — home to a genuinely enormous bronze Buddha — is worth the trip on its own.</p>
+      <div class="stop-credit">Deer in Nara Park — Wikimedia Commons (CC BY 4.0)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">8</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Osaka_Castle_02bs3200.jpg" alt="Osaka Castle">
+      <div class="stop-city">Osaka</div>
+      <h3>Move to Osaka, castle by day, Dotonbori by night</h3>
+      <p>Osaka is about fifteen minutes from Kyoto, so this is a light travel day. Osaka Castle in the afternoon, then Dotonbori's canal-side lights, takoyaki, and okonomiyaki once you're hungry again.</p>
+      <div class="stop-credit">Osaka Castle — Wikimedia Commons (CC BY 2.5)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">9</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Himeji_castle.JPG" alt="Himeji Castle">
+      <div class="stop-city">Osaka</div>
+      <h3>Universal Studios, or a slower day trip</h3>
+      <p>This is the day to pick your own pace: a full day at Universal Studios Japan and Super Nintendo World, or something quieter like Himeji Castle or a trip to Kobe.</p>
+      <div class="stop-credit">Himeji Castle, a popular day trip from Osaka — Wikimedia Commons (CC BY-SA 2.5)</div>
+    </div>
+  </div>
+
+  <div class="stop">
+    <div class="stop-node"><div class="marker">10</div></div>
+    <div>
+      <img class="stop-photo" src="https://commons.wikimedia.org/wiki/Special:FilePath/Dotonbori,_Osaka.jpg" alt="Dotonbori canal at night, Osaka">
+      <div class="stop-city">Osaka → Kuala Lumpur</div>
+      <h3>Last-minute shopping, then the flight home</h3>
+      <p>A final walk through Shinsaibashi for souvenirs and one more convenience-store snack run, then out to Kansai International Airport for the flight back.</p>
+      <div class="stop-credit">Dotonbori at night, Osaka — Wikimedia Commons (CC BY-SA 3.0)</div>
+    </div>
+  </div>
+</div>
+
+<hr class="rule">
+
+<h2>Tokyo, Kyoto, or Osaka — where to add a night</h2>
+
+<p>If your dates end up flexible by a day, it helps to know what you'd actually be trading. The three cities have distinct personalities, and this trip only gives each of them a few days:</p>
+
+<div class="photo-strip">
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Shinjuku_skyline,_Tokyo_-_Sony_A7R_(11831328835).jpg" alt="Tokyo skyline">
+    <figcaption>Tokyo</figcaption>
+  </figure>
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Kinkaku3402.jpg" alt="Kinkaku-ji, Kyoto">
+    <figcaption>Kyoto</figcaption>
+  </figure>
+  <figure>
+    <img src="https://commons.wikimedia.org/wiki/Special:FilePath/Osaka_Castle_02bs3200.jpg" alt="Osaka Castle">
+    <figcaption>Osaka</figcaption>
+  </figure>
+</div>
+
+<table class="cmp">
+  <tr>
+    <th>Aspect</th>
+    <th>Tokyo</th>
+    <th>Kyoto</th>
+    <th>Osaka</th>
+  </tr>
+  <tr>
+    <td>Vibe</td>
+    <td>Futuristic, fast-paced, endless neighbourhoods</td>
+    <td>Traditional, quiet, temple-dense</td>
+    <td>Casual, food-obsessed, easygoing</td>
+  </tr>
+  <tr>
+    <td>Must-see</td>
+    <td>Shibuya, Asakusa, Shinjuku</td>
+    <td>Fushimi Inari, Arashiyama, Kinkaku-ji</td>
+    <td>Dotonbori, Osaka Castle, USJ</td>
+  </tr>
+  <tr>
+    <td>Signature food</td>
+    <td>Sushi, ramen, izakaya small plates</td>
+    <td>Kaiseki, yudofu, matcha sweets</td>
+    <td>Takoyaki, okonomiyaki, kushikatsu</td>
+  </tr>
+  <tr>
+    <td>Best for</td>
+    <td>First-timers, shopping, nightlife</td>
+    <td>Culture, temples, quiet mornings</td>
+    <td>Street food, a day-trip base, value</td>
+  </tr>
+  <tr>
+    <td>Avg. daily spend<br><span style="font-weight:400;font-size:.78rem;color:var(--ink-soft);">excl. hotel</span></td>
+    <td class="mono">RM 220–320</td>
+    <td class="mono">RM 190–270</td>
+    <td class="mono">RM 180–260</td>
+  </tr>
+</table>
+
+<p>My own bias, if it's useful: Kyoto is the easiest city to fall behind schedule in, because everything there rewards lingering. If you only have one extra night to give, I'd give it there.</p>
+
+<h2>Getting around: is the JR Pass still worth it?</h2>
+
+<p>This used to be an easy recommendation. Since the Japan Rail Pass's price increase in October 2023, though, it's genuinely worth doing the maths before you buy — the nationwide pass now needs a fair amount of long-distance travel to pay for itself.</p>
+
+<table class="cmp">
+  <tr>
+    <th>Option</th>
+    <th>Cost (7-day, ordinary)</th>
+    <th>Best for</th>
+    <th>Watch out for</th>
+  </tr>
+  <tr>
+    <td>Nationwide JR Pass</td>
+    <td class="mono">≈ ¥50,000 / RM 1,480</td>
+    <td>Routes with 3+ long shinkansen legs, e.g. adding Hiroshima to this trip</td>
+    <td>Fastest Nozomi/Mizuho trains need a paid supplement; doesn't cover subways</td>
+  </tr>
+  <tr>
+    <td>Kansai region pass</td>
+    <td class="mono">≈ ¥12,000–17,000 / RM 350–500</td>
+    <td>Trips that mostly stay within Kyoto–Osaka–Nara–Kobe</td>
+    <td>Doesn't cover the Tokyo leg — pair it with separate Tokyo transport</td>
+  </tr>
+  <tr>
+    <td>Suica / ICOCA IC card</td>
+    <td class="mono">Pay-as-you-go</td>
+    <td>Every city subway, bus, and local train, every day of the trip</td>
+    <td>Doesn't cover reserved shinkansen seats between cities</td>
+  </tr>
+  <tr>
+    <td>Individual tickets</td>
+    <td class="mono">≈ ¥13,000–15,000 per Tokyo↔Kyoto leg</td>
+    <td>Simpler routes with only one or two intercity trips</td>
+    <td>Often cheaper than the Pass for a single Tokyo–Kyoto–Osaka run</td>
+  </tr>
+</table>
+
+<p class="note">For this exact ten-day route — Tokyo, Kyoto, Osaka, no extra long legs — individual tickets or a regional pass usually beat the nationwide JR Pass. Add a Hiroshima or Kanazawa side trip and the maths tips in the Pass's favour.</p>
+
+<hr class="rule">
+
+<h2>What it actually costs</h2>
+
+<p>Return flights aside, most of the budget for this trip splits fairly predictably across accommodation, food, transport, and everything else. This is roughly how a mid-range traveller's spending breaks down over the ten days:</p>
+
+<div class="budget-wrap">
+  <svg viewBox="0 0 200 200" width="200" height="200">
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#EEF4E7" stroke-width="26"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#3A5827" stroke-width="26"
+      stroke-dasharray="149.5 290.3" transform="rotate(-90 100 100)"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#71A24C" stroke-width="26"
+      stroke-dasharray="114.4 325.4" transform="rotate(32.4 100 100)"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#9CC17E" stroke-width="26"
+      stroke-dasharray="88.0 351.8" transform="rotate(126 100 100)"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#C7DEB3" stroke-width="26"
+      stroke-dasharray="61.6 378.2" transform="rotate(198 100 100)"/>
+    <circle cx="100" cy="100" r="70" fill="none" stroke="#DDE8D0" stroke-width="26"
+      stroke-dasharray="26.4 413.4" transform="rotate(248.4 100 100)"/>
+    <text x="100" y="96" text-anchor="middle" font-family="Shippori Mincho" font-size="15" fill="#28271F">10 days</text>
+    <text x="100" y="116" text-anchor="middle" font-family="Space Mono" font-size="10" fill="#5B584C">mid-range split</text>
+  </svg>
+  <div class="donut-legend">
+    <div><span class="k"><span class="dot" style="background:#3A5827;"></span>Accommodation</span><span class="v">34%</span></div>
+    <div><span class="k"><span class="dot" style="background:#71A24C;"></span>Food</span><span class="v">26%</span></div>
+    <div><span class="k"><span class="dot" style="background:#9CC17E;"></span>Local transport &amp; rail</span><span class="v">20%</span></div>
+    <div><span class="k"><span class="dot" style="background:#C7DEB3;"></span>Activities &amp; attractions</span><span class="v">14%</span></div>
+    <div><span class="k"><span class="dot" style="background:#DDE8D0;"></span>Shopping &amp; misc</span><span class="v">6%</span></div>
+  </div>
+</div>
+
+<p>And here's what those slices add up to at three different comfort levels, flights included:</p>
+
+<table class="cmp">
+  <tr>
+    <th>Style</th>
+    <th>Total (10 days, per person, flights incl.)</th>
+    <th>What that gets you</th>
+  </tr>
+  <tr>
+    <td>Backpacker</td>
+    <td class="mono">RM 3,800–4,800</td>
+    <td>Hostels or capsule hotels, convenience-store and ramen-shop meals, IC card plus regional passes only, mostly free sights</td>
+  </tr>
+  <tr>
+    <td>Mid-range</td>
+    <td class="mono">RM 5,800–7,500</td>
+    <td>3–4★ business hotels, a mix of casual dining with one or two special meals, JR Pass or regional pass as needed, one major paid attraction</td>
+  </tr>
+  <tr>
+    <td>Comfort</td>
+    <td class="mono">RM 9,000+</td>
+    <td>4–5★ hotels or a ryokan night with kaiseki dinner, reserved Green Car seats, a private or guided day trip, room for shopping</td>
+  </tr>
+</table>
+
+<p>Most first-time travellers I know land somewhere in the middle without really planning to — a nicer hotel here, a cheaper lunch there. RM 6,000–6,500 all-in is a fair number to budget around if you're not sure yet.</p>
+
+<h2>Packing, coming from a tropical closet</h2>
+
+<p>The most common mistake I see from Malaysian travellers is packing for one climate when a ten-day trip across three cities can swing through several. A few things worth sorting before you leave:</p>
+
+<h3>Documents</h3>
+<ul>
+  <li>Passport valid at least six months beyond your stay</li>
+  <li>Visit Japan Web QR code (optional, but speeds up immigration)</li>
+  <li>Return flight confirmation and hotel bookings</li>
+  <li>Travel insurance policy</li>
+</ul>
+
+<h3>Clothing</h3>
+<ul>
+  <li>Breathable base layers — Japan's indoor heating and humidity can surprise you</li>
+  <li>A packable rain jacket; showers arrive fast and without much warning</li>
+  <li>Comfortable walking shoes — expect 10–15km days on foot</li>
+  <li>One warm layer for evenings, even outside of winter</li>
+</ul>
+
+<h3>Money and connectivity</h3>
+<ul>
+  <li>Yen cash for shrines, small eateries, and vending machines</li>
+  <li>A card with no foreign transaction fees</li>
+  <li>eSIM or pocket WiFi, booked before you fly</li>
+  <li>A Suica or PASMO card, or the phone-wallet equivalent</li>
+</ul>
+
+<hr class="rule">
+
+<h2>A few questions people usually ask</h2>
+
+<h3>Do I need a visa as a Malaysian?</h3>
+<p>No. Malaysian passport holders can enter Japan visa-free for tourism stays of up to 90 days, and have been able to since 2013 for ICAO-compliant biometric passports.</p>
+
+<h3>Is ten days really enough for Tokyo, Kyoto, and Osaka?</h3>
+<p>Yes, if you make peace with not seeing everything in each city. This itinerary gives roughly four nights around Tokyo, three in Kyoto, and two to three in Osaka — enough to see the highlights properly without the one-night-per-city sprint a lot of shorter trips fall into.</p>
+
+<h3>Should I buy the JR Pass before flying out?</h3>
+<p>Only if your route includes several long-distance legs. For a straightforward Tokyo–Kyoto–Osaka trip like this one, it's worth comparing the pass price against individual ticket costs first — the maths doesn't automatically favour the pass anymore.</p>
+
+<h3>What's the flight time from Kuala Lumpur?</h3>
+<p>Direct flights from KLIA to Tokyo run around seven hours. Osaka's Kansai Airport also has direct options, which can be worth considering if you'd rather fly into one city and out of another.</p>
+
+</article>
+
+<footer>
+  <p>If you're building your own version of this trip, the one piece of advice that holds regardless of route: book your shinkansen seats and any must-visit restaurants a few weeks ahead if you're travelling in spring or autumn. Everything else in Japan tends to sort itself out as you go.</p>
+  <p style="font-size:.78rem;margin-top:18px;">Photos throughout this guide are sourced from Wikimedia Commons under Creative Commons and public domain licenses, credited individually above each image.</p>
+</footer>
+
+</body>
+</html>
